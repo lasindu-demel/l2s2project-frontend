@@ -1,0 +1,22 @@
+
+      <input style="width: 25%;" type="text" class="form-control" placeholder="Enter numder of years to back" [(ngModel)]="years">
+      <button (click)="load(years)" >submit</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Year</th>
+      <th scope="col">Type</th>
+      <th scope="col">Tag</th>
+      <th scope="col">Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of data" >
+      <th scope="row">{{d.year}}</th>
+      <td>{{d.type}}</td>
+      <td>{{d.tag}}</td>
+      <td>{{d.percentage}}%</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,30 @@
+
+<button type="button" class="btn btn-success" (click)="Back()"><<Back to lands</button>
+<br><br><br>
+
+
+<table class="fixed_header">
+        <thead>
+          <tr>
+            <th>Harvest</th>
+            <th>Quantity</th>
+            <th>Unit price</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <div *ngFor="let harv of harvest">
+          <tr>
+            <td>{{ harv.type }}</td>
+            <td>{{ harv.quantity }}</td>
+            <td>{{ harv.unitPrice }}</td>
+            <td>
+              <div *ngIf="harv.status==0"><button (click)="UpdateHarvest(harv)">Set to sell</button></div>
+              <div *ngIf="harv.status==1"><button (click)="ResetUpdate(harv)">Remove from sell</button></div>
+            </td>
+          </tr>
+        </div>
+
+        </tbody>
+      </table>

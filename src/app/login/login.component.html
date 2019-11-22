@@ -1,0 +1,40 @@
+
+<div class="background">
+
+    <button type="button" class="btn btn-dark" routerLink="/home" style="margin:5px; width: 200px;"> <<Back to home </button>
+
+  <div class="container">
+
+    <div class="header">
+      <h1>Login</h1>
+    </div>
+
+    <form #userForm="ngForm" name="userForm" (submit)="login()">
+
+        <div class=radiobutton>       
+            <input type="radio" name="role" value="Farmer" name="group1" class="1" [(ngModel)]="credentials.role">Farmer
+            <input type="radio" name="role" value="Buyer" name="group1" class="2" [(ngModel)]="credentials.role">Buyer
+            <input type="radio" name="role" value="Admin" name="group1" class="2" [(ngModel)]="credentials.role">Admin
+        </div>
+
+      <div class="container"  style="width:500px">
+        <label for="uname"><b>Email</b></label>
+         <input name="email" class="form-control" placeholder="Email address" type="email" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched" [(ngModel)]="credentials.email">
+        <div class="alert_msg" >
+          <small class="text-danger" *ngIf="email.invalid && email.touched">E-mail is required</small>
+        </div>
+
+        <label for="psw"><b>Password</b></label>
+        <input name="password" class="form-control" placeholder="********" type="password" required #pass="ngModel" [class.is-invalid]="pass.invalid && pass.touched" [(ngModel)]="credentials.password">
+        <div class="alert_msg" >
+          <small class="text-danger" *ngIf="pass.invalid && pass.touched">Password is required</small>
+        </div>
+
+        <button type="submit">Login</button>
+
+      </div>
+
+
+    </form>
+  </div>
+</div>

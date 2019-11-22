@@ -1,0 +1,80 @@
+<div class="background">
+
+    <button type="button" class="btn btn-dark" routerLink="/home" style="margin:5px; width: 200px;"> <<Back to home </button>
+
+        <div class="header">
+            <h1>Sign In</h1>
+        </div>
+
+    
+ 
+
+       <form #userForm="ngForm" name="userForm" (submit)="register()">
+
+          <div class=radiobutton>
+         
+              <input type="radio" name="role" value="Farmer" name="group1" class="1" [(ngModel)]="credentials.role">Farmer
+              <input type="radio" name="role" value="Buyer" name="group1" class="2" [(ngModel)]="credentials.role">Buyer
+          </div>
+
+           
+                
+                <div class="container" style="width:500px">
+                  <label for="uname" ><b>First Name</b></label>
+                  <input name="firstName" class="form-control" placeholder="First name" type="text" required #fname="ngModel" [class.is-invalid]="fname.invalid && fname.touched" [(ngModel)]="credentials.firstName">
+                  <div class="alert_msg" >
+                      <small class="text-danger" *ngIf="fname.invalid && fname.touched">Frist name is required</small>
+                  </div>
+              
+                  <label for="psw"><b>Last Name</b></label>
+                  <input name="lastName" class="form-control" placeholder="Last name" type="text" required #lname="ngModel" [class.is-invalid]="lname.invalid && lname.touched" [(ngModel)]="credentials.lastName">
+                  <div class="alert_msg" >
+                      <small class="text-danger" *ngIf="lname.invalid && lname.touched">Last name is required</small>
+                  </div>
+
+                  <label for="psw"><b>Email</b></label>
+                  <input name="email" class="form-control" placeholder="email" type="text" required #mail="ngModel" [class.is-invalid]="mail.invalid && mail.touched" [(ngModel)]="credentials.email">
+                  <div class="alert_msg" >
+                      <small class="text-danger" *ngIf="mail.invalid && mail.touched">email is required</small>
+                  </div>
+
+                  <label for="psw"><b>NIC</b></label>
+                  <input name="nic" class="form-control" placeholder="*********V" type="text" required #nic="ngModel" [class.is-invalid]="nic.invalid && nic.touched" [(ngModel)]="credentials.nic">
+                  <div class="alert_msg" >
+                      <small class="text-danger" *ngIf="nic.invalid && nic.touched">NIC is required</small>
+                  </div>
+
+                  <label for="psw"><b>Contact</b></label>
+                  <input name="contactNo" class="form-control" placeholder="**********" type="text" required #con="ngModel" [class.is-invalid]="con.invalid && con.touched" [(ngModel)]="credentials.contactNo">
+                  <div class="alert_msg" >
+                      <small class="text-danger" *ngIf="con.invalid && con.touched">Contact is required</small>
+                  </div>
+
+                  <label for="psw"><b>Address</b></label>
+                  <input name="personalAddress" class="form-control" placeholder="Address" type="text" required #add="ngModel" [class.is-invalid]="add.invalid && add.touched" [(ngModel)]="credentials.personalAddress">
+                  <div class="alert_msg" >
+                      <small class="text-danger" *ngIf="add.invalid && add.touched">Address is required</small>
+                  </div>
+
+                  <div *ngIf="show()">
+                  <label for="psw"><b>Grama niladari division</b></label>
+                  <input name="gramaNiladariDivision" class="form-control" placeholder="Address" type="text" required #gra="ngModel" [class.is-invalid]="gra.invalid && gra.touched" [(ngModel)]="credentials.gramaNiladariDivision">
+                  <div class="alert_msg" >
+                      <small class="text-danger" *ngIf="gra.invalid && gra.touched">Grama niladari division is required</small>
+                  </div>
+                </div>
+
+                  <label for="psw"><b>Password</b></label>
+                  <input name="password" class="form-control" placeholder="Password" type="password" required #pass="ngModel" [class.is-invalid]="pass.invalid && pass.touched" [(ngModel)]="credentials.password">
+                  <div class="alert_msg" >
+                      <small class="text-danger" *ngIf="pass.invalid && pass.touched">Password is required</small>
+                  </div>
+              
+                  <button *ngIf="!userForm.form.invalid"  type="submit" [disabled]="userForm.form.invalid">Sign up</button>
+                  <button *ngIf="userForm.form.invalid"  type="submit" [disabled]="userForm.form.invalid">Sign up</button>
+                  
+                </div>
+              
+                
+              </form>
+</div>

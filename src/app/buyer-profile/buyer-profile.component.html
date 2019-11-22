@@ -1,0 +1,44 @@
+<div class="background">
+
+        <div style="background-color: rgb(18, 82, 9); color: white;">
+          <a (click)="ViewHarvest()" class="navbar-brand" style="margin:5px 200px;">View harvest</a>
+          <a (click)="YourBid()" class="navbar-brand" style="margin:5px 200px;">Your Bid</a>
+          <a (click)="LogOut()" class="navbar-brand" style="margin:5px 200px;">Logout</a>
+        </div>
+
+        <br><br><br>
+
+        <div class="container">
+
+            <div *ngIf="marked">
+              <section class="cards">
+
+                <div *ngFor="let harv of harvest">
+                  <!--   card 1 -->
+                  <article class="card">
+                    <picture class="thumbnail">
+                      <img class="category__01" src="../../assets/images/map.jpg" alt="" />
+                    </picture>
+                    <div class="card-content">
+                      <h4>Type:{{harv.type}}</h4>
+                      <h4>Quantity:{{harv.quantity}}</h4>
+                      <h4>Unit price:{{harv.unitPrice}}</h4>
+                      <label><h4><b>Put your unit price here:</b></h4></label>
+                      <input type="text" name="unitPrice" style="width: 250px" >
+                      <button class="btn btn-success" style="width: 200px" (click)="SubmitBid(harv.id)">Submit Bid</button>
+                    </div><!-- .card-content -->
+                  </article>
+
+                </div>
+
+              </section>
+
+            </div>
+
+            <div *ngIf="!marked">
+                <app-buyer-bid></app-buyer-bid>
+            </div>
+
+        </div>
+
+      </div>

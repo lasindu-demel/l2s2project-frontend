@@ -1,0 +1,48 @@
+<div class="background">
+
+  <h1 style="text-align: center;">My Harvest</h1>
+  <form #userForm="ngForm" name="userForm" (submit)="AddHarvest()">
+
+
+
+    <div class="container">
+      <label for="uname" style="margin-right: 89px;"><b>Name of Harvest</b></label>
+      <input type="text" name="type" class="form-control" placeholder="Type of harvest" type="email" required
+        #type="ngModel" [class.is-invalid]="type.invalid && type.touched" [(ngModel)]="credentials.type">
+      <div class="alert_msg">
+        <small class="text-danger" *ngIf="type.invalid && type.touched">Type is required</small>
+      </div>
+
+      <br/>
+
+      <label for="psw" style="margin-right: 125px;"><b>Quantity</b></label><br>
+      <input name="quantity" class="form-control" placeholder="in kilograms" type="text" required #qty="ngModel"
+        [class.is-invalid]="qty.invalid && qty.touched" [(ngModel)]="credentials.quantity">
+
+      <div class="alert_msg">
+        <small class="text-danger" *ngIf="qty.invalid && qty.touched">Quantity is required</small>
+      </div>
+
+      <br/>
+
+      <label for="psw" style="margin-right: 95px;"><b>Unit price</b></label><br>
+      <input name="unitPrice" class="form-control" placeholder="in rupees" type="text" required #pri="ngModel"
+        [class.is-invalid]="pri.invalid && pri.touched" [(ngModel)]="credentials.unitPrice">
+      <div class="alert_msg">
+        <small class="text-danger" *ngIf="pri.invalid && pri.touched">Quantity is required</small>
+      </div>
+
+      <br/>
+
+      <div calss="text-center">
+        <button type="submit" class="btn btn-success" style="height: 40px;margin-top: -5px;">Add harvest</button>
+
+      </div>
+
+      <br><br>
+
+    </div>
+
+
+  </form>
+</div>

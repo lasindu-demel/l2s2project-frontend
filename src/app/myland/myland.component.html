@@ -1,0 +1,57 @@
+<div class="background">
+
+  <div style="background-color: rgb(18, 82, 9); color: white;">
+    <a (click)="Land()" class="navbar-brand" style="margin:5px 5% 0px 20%;"><div *ngIf="!marked1">Add lands</div><div *ngIf="marked1"  style="color: greenyellow;">Add lands</div></a>
+    <a (click)="Harvest()" class="navbar-brand" style="margin:5px 5%;"><div *ngIf="!marked2">Add Harvest</div><div *ngIf="marked2"  style="color: greenyellow;">Add Harvest</div></a>
+    <a (click)="Bid()" class="navbar-brand" style="margin:5px 5%;"><div *ngIf="!marked3">Bid responses</div><div *ngIf="marked3"  style="color: greenyellow;">Bid responses</div></a>
+    <a (click)="prediction()" class="navbar-brand" style="margin:5px 5%;"><div *ngIf="!marked4">Predection</div><div *ngIf="marked4"  style="color: greenyellow;">Predection</div></a>
+    <a (click)="LogOut()" class="navbar-brand" style="margin:5px 5%;"><div>Logout</div><div *ngIf="marked4"  style="color: greenyellow;">Predection</div></a>
+  </div>
+
+  <br><br><br>
+
+  <div class="container">
+
+    <div *ngIf="marked1">
+      <h3>Search your Land Location</h3>
+
+      <div class="form-group">
+        <label>Enter address</label>
+        <input type="text" class="form-control" [(ngModel)]="address" (keydown.enter)="$event.preventDefault()"
+          placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+          #search style="width: 500px;">
+      </div>
+
+      <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+        <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+          (dragEnd)="markerDragEnd($event)"></agm-marker>
+      </agm-map>
+
+
+      <div>Address: {{address}}</div>
+
+      <label>Enter size of the land</label>
+      <input type="text" placeholder="Size of land in purcahse" name="size" [(ngModel)]="credential.size">
+      <br>
+      <button type="button" class="btn btn-success" (click)="AddLand()">Add the land</button>
+    </div>
+
+    <div *ngIf="marked2">
+
+      <app-view-land></app-view-land>
+    </div>
+
+
+    <div *ngIf="marked3">
+
+
+    </div>
+    <div *ngIf="marked4">
+
+      <app-chart></app-chart>
+    </div>
+
+
+  </div>
+
+</div>
